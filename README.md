@@ -1,5 +1,6 @@
-# art-box web-site project;
+# art-box web-site
 # mvn edition
+# eclipse ide project
 
 #To read how to deploy this project to server using maven, pls, read comments in docs section
 

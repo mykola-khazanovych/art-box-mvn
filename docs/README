@@ -1,0 +1,59 @@
+How to build this project with Maven (apesial thanks to https://github.com/maxim-grinchenko/)
+
+
+Step - 1. Installed and Environment variables
+
+# if you do not have Java installed, install the <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java Software Development Kit (SDK)</a>
+
+# download and setup <a href="https://maven.apache.org/download.cgi">apache-maven</a> 
+
+# download and <a href="http://tomcat.apache.org/">setup tomcat servler container</a> 
+
+# be sure that you've added all the paths to installed products /bin directories (jdk and maven) to your system PATH variable:
+
+# open console (win + R, print cmd, enter, etc.):
+
+try print "java" and press enter, try print "javac" and press enter — these ones should be recognised as commands,
+
+ and input command "mvn -v", should also be output like:
+
+		Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T17:27:37+05:30)
+		Maven home: C:\Program Files\Apache Software Foundation\apache-maven-3.3.3
+		Java version: 1.7.0_75, vendor: Oracle Corporation
+		Java home: C:\Program Files\Java\jdk1.7.0_75\jre
+		Default locale: en_US, platform encoding: Cp1252
+		
+You are now all set to use Apache Maven for your projects.
+
+
+Step - 2. Add configs files
+
+# add settings from file "tomcat-users.txt" in your %tomcat-home%\conf\tomcat-users.xml 
+
+# add settings from file "server.txt" in your %tomcat-home%\conf\server.xml
+
+Step - 3. Command line 
+
+# open console in %tomcat-home%\bin\ and input command "startup.bat" or "catalina.bat run"
+
+# open console in \workspace\%name_project%\ and input command "mvn tomcat7:deploy"
+	Should be output "BUILD SUCCESS"
+	
+	
+BASE COMMAND IN CONSOLE:
+# to stop server
+		- shutdown.bat or shortcut "Ctrl+C" 
+
+# checking active profiles created by � pom.xml
+		- mvn help:active-profiles
+
+# deploy by profile
+		- mvn tomcat7:deploy -PMentor
+		
+# delete all artefacts in the 'target' directory"
+		- mvn clean
+		
+# delete and create new target directory with new war
+		- mvn clean install
+		
+

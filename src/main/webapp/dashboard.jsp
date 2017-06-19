@@ -27,59 +27,55 @@
   <tr>
     <td colspan=3 class="loraFont">
     	<br>
-			<p style="font-size: 0.8em">
-				ArtBox set name (<i>left blank to see full list</i>):
-				<form action="find" method="get">
-					<input type="text" name="theme" size=20  class="loraFont">
-					<input type="submit" value="Search">
-				</form>
-			</p>
-				
-		
-			<br/>
-			<p class=${textColor}>${message}</p>
-			<p style="font-size: 0.8em">${artbox}</p>
+	<p style="font-size: 0.8em">
+		ArtBox set name (<i>left blank to see full list</i>):
+		<form action="find" method="get">
+		<input type="text" name="theme" size=20  class="loraFont">
+		<input type="submit" value="Search">
+		</form>
+	</p>
+	<br/>
+	<p class=${textColor}>${message}</p>
+	<p style="font-size: 0.8em">${artbox}</p>
 	
 		<!-- if database is empty we do not need to print empty table -->
 		<c:if test="${not empty products}">
 			
-		<!-- JSTL version of result table -->
-		<table class="baseLayout" style="width: 100%">
+			<!-- JSTL version of result table -->
+			<table class="baseLayout" style="width: 100%">
 				<tr>
-					<td>id</td>
-					<td>theme</td>
-					<td>age</td>
-					<td>cost</td>
-					<td></td>
+				  <td>id</td>
+				  <td>theme</td>
+				  <td>age</td>
+				  <td>cost</td>
+				  <td></td>
 				</tr>		
 		
 				<c:forEach items="${products}" var="product">
-        		
-        		<tr>
-            		<td>${product.key}</td>
-         		    <td>${product.value.theme}</td>
-                    <td>${product.value.age}</td>
-       		        <td>${product.value.cost}</td>
-       		        
-       		        <td>
-       		        <form action="remove" method="post">
-       		        	<input type="submit" value="Delete">
-       		        	<input type="hidden" name="id" value="${product.key}">
-       		        	</form>
-       		        </td>
-    		    </tr>
-    			</c:forEach>
+        			<tr>
+            			  <td>${product.key}</td>
+         		    	  <td>${product.value.theme}</td>
+                    		  <td>${product.value.age}</td>
+       		        	  <td>${product.value.cost}</td>
+       		        	  <td>
+       		         	      <form action="remove" method="post">
+       		        	        <input type="submit" value="Delete">
+       		        	        <input type="hidden" name="id" value="${product.key}">
+       		        	      </form>
+       		                  </td>
+    		                </tr>
+    				</c:forEach>
 			</table>	
-		</c:if>
-		<p class="textColorFooter loraFont">Make your life happier with kids, make your kids happier with art!</p>
+		  </c:if>
+       <p class="textColorFooter loraFont">Make your life happier with kids, make your kids happier with art!</p>
     </td>
   </tr>
   <tr>
-   <td colspan=3 class="backgroundColorCells baseLayout">
+    <td colspan=3 class="backgroundColorCells baseLayout">
     	<fieldset style="border: 1px solid #9999ff">
     		<legend class="textColorFooter" >Find us in social networks</legend>
     		<a href="https://www.facebook.com/babyartbox/?fref=ts">
-    			<img src="img/facebook-icon-40x40.png" class="alignCenterImg">
+   		  <img src="img/facebook-icon-40x40.png" class="alignCenterImg">
     		</a>
     	</fieldset>
     </td>

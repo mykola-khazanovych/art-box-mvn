@@ -1,6 +1,6 @@
-<h2> art-box web-site </h2>
-<h2> mvn edition </h2>
-<h2> eclipse ide project </h2>
+<h4> art-box web-site </h4>
+<h4> mvn edition </h4>
+<h4> eclipse ide project </h4>
 
 To read how to deploy this project to server using maven, pls, read comments in ***INSTALL*** section
 
@@ -8,7 +8,6 @@ To read how to deploy this project to server using maven, pls, read comments in 
 </p>
 
 ***API***
-
 <h6>API request examples</h6>
 
 CREATE ArtBox with theme, age and cost:<br>
@@ -22,30 +21,17 @@ SHOW ALL ArtBoxes:<br>
 
 ***INSTALL***
 
-Hello friend!
+Hello friend! :)
 
 How to build this project with Maven?
 
-Quite simple. I think you already have JDK, Tomcat and Maven installed and ready-to-work. If not — follow simple guide and succeed:
+Quite simple. I think you already have JDK, Tomcat and Maven installed and ready-to-work. If not ï¿½ follow simple guide and succeed:
 https://maven.apache.org/download.cgi
 http://tomcat.apache.org/
 
 Please update your "tomcat-users.txt" in %tomcat-home%\conf\tomcat-users.xml 
 
-with the following code:
-
-<tomcat-users>
-
-	<role rolename="manager-script" />
-	<role rolename="manager-gui" />
-	
-	#you can deploy your project to server(tomcat) using this setting:
-	<user username="deploy-api" password="deploy-api" roles="manager-script" />
-	
-	#you can enter the tomcat's manager's gui console as:
-	<user username="manager" password="manager" roles="manager-gui" />
-
-</tomcat-users>
+with the code from file docs/tomcat-users.txt
 
 Then open console and input command "catalina.bat run" in %tomcat-home%\bin\ directory.
 (exmpl: run console in the directory E:\installs\programmng\apache-tomcat-8.5.14\bin and input command: catalina.bat run)
@@ -56,17 +42,18 @@ directory.
 
 Should be output "BUILD SUCCESS"
 	
-BASE COMMANDS IN CONSOLE:
+<h5> BASE COMMANDS IN CONSOLE: </h5>
 
-# to stop server
+<h6> to stop server </h6>
 		- shutdown.bat or shortcut "Ctrl+C" 
-# deploy with particular profile
+		
+<h6> deploy with particular profile </h6>
 		- mvn tomcat7:deploy -PMentor
 		
-# delete all artefacts in the 'target' directory"
+<h6> delete all artefacts in the 'target' directory" </h6>
 		- mvn clean
 		
-# delete and create new target directory with new war
+<h6> delete and create new target directory with new war </h6>
 		- mvn clean install
 		
 

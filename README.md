@@ -1,12 +1,15 @@
 <h4> art-box web-site </h4>
-<h4> mvn edition </h4>
-<h4> eclipse ide project </h4>
+<b>mvn edition</b>
+<br>
+<br>
 
+<p>
 To read how to deploy this project to server using maven, pls, read comments in ***INSTALL*** 
 section.
+</p>
 
 <h2>Training grounds to learn java+web engineering.</h2>
-</p>
+
 
 ***API***
 <h6>API request examples</h6>
@@ -28,11 +31,12 @@ How to build this project with Maven?
 
 Quite simple. I think you already have JDK, Tomcat and Maven installed and ready-to-work. If not - 
 follow simple guide and succeed:
+<br>
 https://maven.apache.org/download.cgi
+<br>
 http://tomcat.apache.org/
 
 Please update your "tomcat-users.txt" in %tomcat-home%\conf\tomcat-users.xml 
-
 with the code from file docs/tomcat-users.txt
 
 Then open console and input command "catalina.bat run" in %tomcat-home%\bin\ directory.
@@ -44,7 +48,7 @@ directory.
 (exmpl: run console in the directory E:\Programming\Eclipse\art-box-mvn and input command: 
 mvn tomcat7:deploy)
 
-Should be output "BUILD SUCCESS"
+Output we looking for - "BUILD SUCCESS" - :)
 	
 <h5> BASE COMMANDS IN CONSOLE: </h5>
 

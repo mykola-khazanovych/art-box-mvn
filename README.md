@@ -29,8 +29,8 @@ Hello friend! :)
 
 How to build this project with Maven?
 
-Quite simple. I think you already have JDK, Tomcat and Maven installed and ready-to-work. If not - 
-follow simple guide and succeed:
+Quite simple. I think you already have JDK (>= 1.8), Tomcat(>= 8.0) and Maven (>= 3.0) 
+installed and ready-to-work. If not - follow simple guide and succeed:
 <br>
 https://maven.apache.org/download.cgi
 <br>

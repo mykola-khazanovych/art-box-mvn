@@ -3,10 +3,10 @@
 	<role rolename="manager-script" />
 	<role rolename="manager-gui" />
 
-	#you can deploy your project to server(tomcat) using this setting:
+	<!--you can deploy your project to server(tomcat) using this setting:-->
 	<user username="deploy-api" password="deploy-api" roles="manager-script" />
 
-	#you can enter the tomcat's manager's gui console as:
+	<!--you can enter the tomcat's manager's gui console as:-->
 	<user username="manager" password="manager" roles="manager-gui" />
 
 </tomcat-users>

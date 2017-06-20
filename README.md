@@ -40,11 +40,13 @@ Please update your "tomcat-users.txt" in %tomcat-home%\conf\tomcat-users.xml
 with the code from file docs/tomcat-users.txt
 
 Then open console and input command "catalina.bat run" in %tomcat-home%\bin\ directory.
+<br>
 (exmpl: run console in the directory E:\installs\programmng\apache-tomcat-8.5.14\bin and input 
 command: catalina.bat run)
 
 To deploy this project on Tomcat run command "mvn tomcat7:deploy" from project's root
 directory.
+<br>
 (exmpl: run console in the directory E:\Programming\Eclipse\art-box-mvn and input command: 
 mvn tomcat7:deploy)
 

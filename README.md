@@ -2,7 +2,8 @@
 <h4> mvn edition </h4>
 <h4> eclipse ide project </h4>
 
-To read how to deploy this project to server using maven, pls, read comments in ***INSTALL*** section
+To read how to deploy this project to server using maven, pls, read comments in ***INSTALL*** 
+section.
 
 <h2>Training grounds to learn java+web engineering.</h2>
 </p>
@@ -25,7 +26,8 @@ Hello friend! :)
 
 How to build this project with Maven?
 
-Quite simple. I think you already have JDK, Tomcat and Maven installed and ready-to-work. If not � follow simple guide and succeed:
+Quite simple. I think you already have JDK, Tomcat and Maven installed and ready-to-work. If not - 
+follow simple guide and succeed:
 https://maven.apache.org/download.cgi
 http://tomcat.apache.org/
 
@@ -34,11 +36,13 @@ Please update your "tomcat-users.txt" in %tomcat-home%\conf\tomcat-users.xml
 with the code from file docs/tomcat-users.txt
 
 Then open console and input command "catalina.bat run" in %tomcat-home%\bin\ directory.
-(exmpl: run console in the directory E:\installs\programmng\apache-tomcat-8.5.14\bin and input command: catalina.bat run)
+(exmpl: run console in the directory E:\installs\programmng\apache-tomcat-8.5.14\bin and input 
+command: catalina.bat run)
 
 To deploy this project on Tomcat run command "mvn tomcat7:deploy" from project's root
 directory.
-(exmpl: run console in the directory E:\Programming\Eclipse\art-box-mvn and input command: mvn tomcat7:deploy
+(exmpl: run console in the directory E:\Programming\Eclipse\art-box-mvn and input command: 
+mvn tomcat7:deploy)
 
 Should be output "BUILD SUCCESS"
 	

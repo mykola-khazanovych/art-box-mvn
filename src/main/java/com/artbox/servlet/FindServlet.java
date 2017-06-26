@@ -32,7 +32,7 @@ public class FindServlet extends HttpServlet {
         ArtBoxStorage storage = ArtBoxStorage.getInstance();
         ArtBox findArtBox = storage.findByTheme( theme );
         Map<Integer, ArtBox> artBoxCollection = storage.getAll();
-        log.info( "Art box collection:" + artBoxCollection + " loaded in " + this.getServletName() );
+        log.info( "Art box collection loaded in " + this.getServletName() );
 
         String message = "ERROR! There is no ArtBox with entered theme \'" + theme + "\' in the storage!";
         String textColor = "textColorRed";
@@ -48,7 +48,7 @@ public class FindServlet extends HttpServlet {
         }
 
         if ( findArtBox != null ) {
-            log.info( "Art box collection:" + artBoxCollection + " has been fond in " + this.getServletName() );
+            log.info( "ArtBox with theme \"" + theme + "\" has been found in" + this.getServletName() );
             message = "ArtBox with theme \"" + theme + "\" has been found!";
             textColor = "textColorGreen";
             request.setAttribute( "artbox", findArtBox );

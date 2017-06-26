@@ -31,6 +31,7 @@
             <!--  photo from: https://static9.depositphotos.com/1034502/1145/v/950/depositphotos_11450046-stock-illustration-calligraphic-design-elements-and-page.jpg -->
             <p><img src="img/calligraphy.jpg"></p>
 
+            <!-- Info message from registration page is publishing here -->
             <p class="${emailMessageTextColor}">${message}</p>
 
             <p style="font-size: 0.8em" class="alignLeft">

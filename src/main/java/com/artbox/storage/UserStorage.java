@@ -1,8 +1,6 @@
 package com.artbox.storage;
 
-import com.artbox.model.ArtBox;
 import com.artbox.model.User;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;

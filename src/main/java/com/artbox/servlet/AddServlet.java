@@ -11,60 +11,68 @@ import javax.servlet.http.HttpServletResponse;
 import com.artbox.model.ArtBox;
 import com.artbox.builder.ArtBoxBuilder;
 import com.artbox.storage.ArtBoxStorage;
+import org.apache.log4j.Logger;
 
-@WebServlet("/add")
+@WebServlet( "/add" )
 public class AddServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 485135717800530684L;
+    private static final long serialVersionUID = 485135717800530684L;
 
-	private static final String ART_BOX_THEME = "theme";
-	private static final String ART_BOX_RECOMMENDED_AGE = "age";
-	private static final String ART_BOX_COST = "cost";
+    private static final String ART_BOX_THEME = "theme";
+    private static final String ART_BOX_RECOMMENDED_AGE = "age";
+    private static final String ART_BOX_COST = "cost";
 
-	public AddServlet() {
-		super();
-	}
+    private static final Logger log = Logger.getLogger( AddServlet.class );
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		response.sendRedirect("add.jsp");
-	}
+    public AddServlet() {
+        super();
+    }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    protected void doGet( HttpServletRequest request, HttpServletResponse response )
+            throws ServletException, IOException {
 
-		String theme = request.getParameter(ART_BOX_THEME);
-		String ageStr = request.getParameter(ART_BOX_RECOMMENDED_AGE);
-		String costStr = request.getParameter(ART_BOX_COST);
+        response.sendRedirect( "add.jsp" );
+        log.debug( "Redirected from doGet in " + this.getServletName() + " to add.jsp" );
+    }
 
-		String message;
-		String textColor;
+    protected void doPost( HttpServletRequest request, HttpServletResponse response )
+            throws ServletException, IOException {
 
-		try {
+        String theme = request.getParameter( ART_BOX_THEME );
+        String ageStr = request.getParameter( ART_BOX_RECOMMENDED_AGE );
+        String costStr = request.getParameter( ART_BOX_COST );
 
-			int age = Integer.parseInt(ageStr);
-			float cost = Float.parseFloat(costStr);
+        String message;
+        String textColor;
 
-			ArtBoxStorage artboxStorage = ArtBoxStorage.getInstance();
-			ArtBox artBox = new ArtBoxBuilder().theme(theme).age(age).cost(cost).build();
+        try {
 
-			message = "Error! Artbox can't be added!";
-			textColor = "textColorRed";
+            int age = Integer.parseInt( ageStr );
+            float cost = Float.parseFloat( costStr );
 
-			if (artboxStorage.add(artBox)) {
+            ArtBoxStorage artboxStorage = ArtBoxStorage.getInstance();
+            ArtBox artBox = new ArtBoxBuilder().theme( theme ).age( age ).cost( cost ).build();
+            log.info( artBox + " was generated." );
 
-				message = "Success! Artbox '" + theme + "' has been added!";
-				textColor = "textColorGreen";
-			}
+            message = "Error! Artbox can't be added!";
+            textColor = "textColorRed";
 
-		} catch (NumberFormatException nfe) {
+            if ( artboxStorage.add( artBox ) ) {
 
-			message = "Error! Number format error! Please enter correct values for ArtBox'es 'theme', 'age' and 'cost'!";
-			textColor = "textColorRed";
-		}
-		request.setAttribute("message", message);
-		request.setAttribute("textColor", textColor);
-        request.getRequestDispatcher("/add.jsp").forward(request, response);
-	}
+                message = "Success! Artbox '" + theme + "' has been added!";
+                log.info( "Success! Artbox '" + theme + "' has been added!" );
+                textColor = "textColorGreen";
+            }
+
+        } catch ( NumberFormatException nfe ) {
+
+            message = "Error! Number format error! Please enter correct values for ArtBox'es 'theme', 'age' and 'cost'!";
+            log.error( "Error! Number format error in " + this.getServletName() + " : ", nfe );
+            textColor = "textColorRed";
+        }
+        request.setAttribute( "message", message );
+        request.setAttribute( "textColor", textColor );
+        request.getRequestDispatcher( "/add.jsp" ).forward( request, response );
+        log.debug( "sendRedirect from doPost in" + this.getServletName() + " to add.jsp" );
+    }
 }

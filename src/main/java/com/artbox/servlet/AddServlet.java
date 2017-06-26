@@ -31,8 +31,8 @@ public class AddServlet extends HttpServlet {
     protected void doGet( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
 
-        response.sendRedirect( "add.jsp" );
         log.debug( "Redirected from doGet in " + this.getServletName() + " to add.jsp" );
+        response.sendRedirect( "add.jsp" );
     }
 
     protected void doPost( HttpServletRequest request, HttpServletResponse response )
@@ -49,6 +49,7 @@ public class AddServlet extends HttpServlet {
 
             int age = Integer.parseInt( ageStr );
             float cost = Float.parseFloat( costStr );
+            log.debug( age + " and " + cost + " were successfully parsed in: " + this.getServletName() );
 
             ArtBoxStorage artboxStorage = ArtBoxStorage.getInstance();
             ArtBox artBox = new ArtBoxBuilder().theme( theme ).age( age ).cost( cost ).build();
@@ -59,20 +60,20 @@ public class AddServlet extends HttpServlet {
 
             if ( artboxStorage.add( artBox ) ) {
 
-                message = "Success! Artbox '" + theme + "' has been added!";
                 log.info( "Success! Artbox '" + theme + "' has been added!" );
+                message = "Success! Artbox '" + theme + "' has been added!";
                 textColor = "textColorGreen";
             }
 
         } catch ( NumberFormatException nfe ) {
 
-            message = "Error! Number format error! Please enter correct values for ArtBox'es 'theme', 'age' and 'cost'!";
             log.error( "Error! Number format error in " + this.getServletName() + " : ", nfe );
+            message = "Error! Number format error! Please enter correct values for ArtBox'es 'theme', 'age' and 'cost'!";
             textColor = "textColorRed";
         }
         request.setAttribute( "message", message );
         request.setAttribute( "textColor", textColor );
-        request.getRequestDispatcher( "/add.jsp" ).forward( request, response );
         log.debug( "sendRedirect from doPost in" + this.getServletName() + " to add.jsp" );
+        request.getRequestDispatcher( "/add.jsp" ).forward( request, response );
     }
 }

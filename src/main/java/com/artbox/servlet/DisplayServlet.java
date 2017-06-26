@@ -34,20 +34,21 @@ public class DisplayServlet extends HttpServlet {
 
         String message = "";
         if ( artBoxCollection.isEmpty() ) {
-            message = "Sorry! Database is empty!";
+
             log.warn( "Trying to list an empty collection in " + this.getServletName() );
+            message = "Sorry! Database is empty!";
             request.setAttribute( "message", message );
             request.setAttribute( "textColor", "textColorRed" );
         }
 
+        log.debug( "Forwarded updated request from doGet in: " + this.getServletName() + " to dashboard.jps!" );
         request.getRequestDispatcher( "/dashboard.jsp" ).forward( request, response );
-        log.debug( "Forwarded updated request from doGet in " + this.getServletName() );
     }
 
     protected void doPost( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
 
+        log.debug( "Redirection from doPost into doGet in: " + this.getServletName() );
         this.doGet( request, response );
-        log.debug( "Redirection from doGet in " + this.getServletName() );
     }
 }

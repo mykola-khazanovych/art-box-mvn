@@ -1,6 +1,5 @@
 package com.artbox.filter;
 
-import com.artbox.servlet.RegistrationServlet;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
@@ -14,8 +13,10 @@ import static com.artbox.util.RegistrationValidator.validateEmail;
  */
 @WebFilter( "/register" )
 public class EmailRegistrationFilter implements Filter {
+
     private static final String EMAIL = "email";
     private static final Logger log = Logger.getLogger( EmailRegistrationFilter.class );
+
 
     public void destroy() {
     }
@@ -52,5 +53,4 @@ public class EmailRegistrationFilter implements Filter {
     public void init( FilterConfig config ) throws ServletException {
 
     }
-
 }

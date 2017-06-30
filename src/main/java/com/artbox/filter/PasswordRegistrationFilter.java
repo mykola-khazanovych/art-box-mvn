@@ -12,7 +12,7 @@ import static com.artbox.util.RegistrationValidator.validatePassword;
 /**
  * Created by mykola.khazanovych on 6/30/2017.
  */
-@WebFilter( filterName = "PasswordRegistrationFilter" )
+@WebFilter( "/register" )
 public class PasswordRegistrationFilter implements Filter {
 
     private static final Logger log = Logger.getLogger( RegistrationServlet.class );
@@ -43,11 +43,10 @@ public class PasswordRegistrationFilter implements Filter {
             passwordMessageTextColor = "textColorRed";
             request.setAttribute( "passwordMessage", passwordMessage );
             request.setAttribute( "passwordMessageTextColor", passwordMessageTextColor );
-            log.debug( "sendRedirect from doPost in" + this.getClass().getName() + " to registration.jsp" );
+            log.debug( "sendRedirect from doPost in" + this.getClass()
+                                                           .getName() + " to registration.jsp" );
             request.getRequestDispatcher( "/registration.jsp" ).forward( request, response );
         }
-
-
         chain.doFilter( request, response );
     }
 

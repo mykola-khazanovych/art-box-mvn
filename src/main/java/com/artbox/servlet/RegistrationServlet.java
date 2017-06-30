@@ -49,7 +49,7 @@ public class RegistrationServlet extends HttpServlet {
         String emailMessage;
         String emailMessageTextColor;
 
-//if email non-valid return to reqistration page with message
+//if email non-valid return to registration page with message
         if ( !validateEmail( email ) ) {
             emailMessage = "Non-valid email!";
             emailMessageTextColor = "textColorRed";

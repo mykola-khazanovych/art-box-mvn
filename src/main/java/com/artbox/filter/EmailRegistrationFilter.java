@@ -7,6 +7,8 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
+import static com.artbox.util.RegistrationValidator.validateEmail;
+
 /**
  * Created by mykola.khazanovych on 6/30/2017.
  */
@@ -23,6 +25,7 @@ public class EmailRegistrationFilter implements Filter {
             ServletResponse response,
             FilterChain chain
     ) throws ServletException, IOException {
+
         String email = request.getParameter( EMAIL );
         String emailMessage;
         String emailMessageTextColor;
@@ -33,7 +36,8 @@ public class EmailRegistrationFilter implements Filter {
             emailMessageTextColor = "textColorRed";
             request.setAttribute( "emailMessage", emailMessage );
             request.setAttribute( "emailMessageTextColor", emailMessageTextColor );
-            log.debug( "sendRedirect from doPost in" + this.getClass().getName() + " to registration.jsp" );
+            log.debug( "sendRedirect from doPost in" + this.getClass()
+                                                           .getName() + " to registration.jsp" );
             request.getRequestDispatcher( "/registration.jsp" ).forward( request, response );
         }
 

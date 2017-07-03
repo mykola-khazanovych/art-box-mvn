@@ -33,6 +33,7 @@ public class EmailRegistrationFilter implements Filter {
 
 //if email non-valid return to registration page with message
         if ( !validateEmail( email ) ) {
+            log.debug("Non-valid email entered!" + this.getClass().getName());
             emailMessage = "Non-valid email!";
             emailMessageTextColor = "textColorRed";
             request.setAttribute( "emailMessage", emailMessage );

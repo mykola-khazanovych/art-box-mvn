@@ -15,7 +15,7 @@ import static com.artbox.util.RegistrationValidator.validatePassword;
 @WebFilter( "/register" )
 public class PasswordRegistrationFilter implements Filter {
 
-    private static final Logger log = Logger.getLogger( RegistrationServlet.class );
+    private static final Logger log = Logger.getLogger( PasswordRegistrationFilter.class );
     private static final String PASSWORD = "password";
     private static final String PASSWORD_REPEAT = "passwordRepeat";
 
@@ -34,11 +34,11 @@ public class PasswordRegistrationFilter implements Filter {
         String passwordMessage;
         String passwordMessageTextColor;
 
-//if password non-valid return to reqistration page with message
+//if password non-valid return to registration page with message
         if ( !validatePassword( password, passwordRepeat ) ) {
             passwordMessage = "Non-valid password! It should contain any symbol, and be from" +
                     " 5 to 25 symbols long! Or retype it carefully, please!";
-            log.error( "Non-valid password! It should contain any symbol, and be from" +
+            log.debug( "Non-valid password! It should contain any symbol, and be from" +
                                " 5 to 25 symbols long!" );
             passwordMessageTextColor = "textColorRed";
             request.setAttribute( "passwordMessage", passwordMessage );

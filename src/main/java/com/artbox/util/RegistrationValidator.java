@@ -10,6 +10,11 @@ public class RegistrationValidator {
     private static Pattern pattern;
     private static Matcher matcher;
 
+    //Suppress default costructor for noninstantiability. Approach by Josh Bloch
+    private RegistrationValidator(){
+        throw new AssertionError( "This class is just a collection of utilities!" );
+    }
+
     /*
     ^			           # start of the line
     [_A-Za-z0-9-\.]{4,31}  # must contain no less than 4 characters including "_" and ".", but no more than 31

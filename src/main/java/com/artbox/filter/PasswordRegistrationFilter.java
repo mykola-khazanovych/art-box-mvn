@@ -1,17 +1,12 @@
 package com.artbox.filter;
 
-import com.artbox.servlet.RegistrationServlet;
 import org.apache.log4j.Logger;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 import static com.artbox.util.RegistrationValidator.validatePassword;
 
-/**
- * Created by mykola.khazanovych on 6/30/2017.
- */
 @WebFilter( "/register" )
 public class PasswordRegistrationFilter implements Filter {
 
@@ -51,7 +46,5 @@ public class PasswordRegistrationFilter implements Filter {
     }
 
     public void init( FilterConfig config ) throws ServletException {
-
     }
-
 }
